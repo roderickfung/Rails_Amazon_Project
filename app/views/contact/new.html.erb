@@ -1,0 +1,26 @@
+<h1>Contact Us</h1>
+
+<%= form_tag contact_path do%>
+  <div>
+    <%=label_tag :name %>
+    <%=text_field_tag :name%>
+  </div>
+  <div>
+    <%=label_tag :subject %>
+    <%=text_field_tag :subject%>
+  </div>
+  <div>
+    <%=label_tag :email%>
+    <%= email_field_tag :email %>
+  </div>
+  <div>
+    <%=label_tag :message %>
+    <%=text_area_tag :message, nil, rows: 10%>
+  </div>
+    <%=submit_tag 'Send Message', class: 'btn btn-info'%>
+<%end%>
+
+<%if @msg != "" %>
+<p>Thank you, <%=$name%>. Your message has been sent!</p>
+<p>You will receive a notification at <%=@email%>.</p>
+<%end%>

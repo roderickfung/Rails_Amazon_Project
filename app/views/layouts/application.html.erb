@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse" style = 'width: 100%; background-color: #111111;'>
+      <div class="container-fluid">
+        <ul class="nav navbar-nav" style='span6'>
+            <li><%=link_to 'Home', root_path%></li>
+            <li><%=link_to 'About', about_path%></li>
+            <li><%=link_to 'Contact', contact_path%></li>
+        </ul>
+      </div>
+    </nav>
+    <div class='container'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
