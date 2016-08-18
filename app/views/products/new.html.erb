@@ -1,0 +1,10 @@
+<div class='title-block'>
+  <h1>New Product</h1>
+</div>
+<!--  this will look for file called form within the same folder of this file. Use full path if want to look for file in another folder, such as:
+"/products/form". Partials hav access to instance variables available in the template. In this case, @product will be available _form.html.erb -->
+
+<!--  If you want to pass local variable then you can do:
+      render 'form', abc = 'Hello', then you will have abe in '_form' with value 'Hello' -->
+
+<%= render "form" %>

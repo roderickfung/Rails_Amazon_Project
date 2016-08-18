@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// document.getElementById("navbar").style.height=window.innerHeight;

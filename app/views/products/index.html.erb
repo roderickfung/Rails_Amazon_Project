@@ -1,0 +1,38 @@
+
+<div class='title-block'>
+  <h1 style='display: inline;'>Products</h1>
+  <div class="col-sm-3 col-md-3 search-bar">
+    <%= form_tag products_path, method: 'get', class: 'navbar-form', role: 'search' do %>
+      <%= text_field_tag :query, params[:query], size: 150, placeholder: "Search", class: "form-control"%>
+      <%= submit_tag "Search", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
+
+<table class='table-striped table' style='margin-top: 1 em;'>
+  <tr>
+    <th>Product Name</th>
+    <th>Details</th>
+  </tr>
+  <% @prod.each do |x|%>
+    <tr>
+      <td><b><%=x.title%></b></td>
+      <td><%=link_to 'Product Details', product_path(x), class:'btn btn-info'%></td>
+    </tr>
+  <%end%>
+</table>
+
+<div class='container' style='text-align: center;'>
+  <%for i in (1..(@ent/ProductsController::PRODUCTS_PER_PAGE)+1)%>
+    <%= link_to "#{i}", products_path(page: i, query: @query)%>
+  <%end%>
+</div>
+
+<div style="margin-top: 1.2em;">
+  <% if @page > 1%>
+    <%= link_to 'Back', products_path(page: @page-1, query: @query), class:'btn btn-primary'%>
+  <%end%>
+  <% if @page < (@ent/ProductsController::PRODUCTS_PER_PAGE)+1%>
+  <%= link_to 'Next', products_path(page: @page+1, query: @query), class:'btn btn-primary next-button'%>
+  <%end%>
+</div>

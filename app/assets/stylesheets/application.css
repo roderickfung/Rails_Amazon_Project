@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+.product-block {
+  display: block;
+}
+
+.form-label {
+  display: inline;
+  float: left;
+}
+
+.form-field {
+  display: inline-block;
+  position: relative;
+  float: none;
+  margin-left: 5rem;
+}
+
+.btn-submit {
+  display: block;
+  position: relative;
+}
+
+.next-button {
+  float: right;
+  clear: right;
+}
+
+.search-bar {
+  display: inline;
+  float:right;
+}
+
+.title-block {
+  margin: 2rem 0rem 2rem 0rem;
+}

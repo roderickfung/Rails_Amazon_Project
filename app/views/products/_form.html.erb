@@ -1,0 +1,32 @@
+
+<div class='container-fluid' style='margin: 30pt 0pt 0pt 0pt'>
+  <%= form_for @product do |f| %>
+  <div class='product-block form-group'>
+    <div class='form-label'>
+      <%= f.label :title%>
+    </div>
+    <div class= 'form-field'>
+      <%= f.text_field :title, class: 'span8'%>
+    </div>
+  </div>
+  <div class='product-block form-group'>
+    <div class='form-label'>
+      <%= f.label :price%>
+    </div>
+    <div class= 'form-field'>
+      <%= f.text_field :price, class: 'span8'%>
+    </div>
+  </div>
+  <div class='product-block form-group'>
+    <div class='form-label'>
+      <%= f.label :description %>
+    </div>
+    <div class='form-field form-group'>
+      <%= f.text_area :description , {class: 'span8', rows: 12} %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit'Submit', class: 'btn btn-primary btn-submit'%>
+  </div>
+  <% end %>
+</div>

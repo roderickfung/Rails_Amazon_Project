@@ -3,5 +3,16 @@ Rails.application.routes.draw do
   get '/about' => 'about#new'
   get '/contact' => 'contact#new'
   post '/contact' => 'contact#new'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # resources :categories, only: [:index] do
+  #   get '/products/pages/:page' => 'products#index', as: :products_page
+  #   resources :products, except:[:index] do
+  #     resources :reviews, only: [:create, :destroy, :index]
+  #   end
+  # end
+
+  resources :categories, only: [:index]
+  resources :products do
+    resources :reviews, only: [:create, :destroy, :index]
+  end
 end

@@ -1,0 +1,42 @@
+<div class='title-block'>
+  <h1><%=@product.title%></h1>
+</div>
+
+<div class='container-fluid' style="margin: 50px; 0px; 50px; 0px;">
+  <p><%=@product.description%></p>
+  <div><%=number_to_currency(@product.price, locale: :en)%></div>
+</div>
+
+<div>
+  <%@reviews.each do |r|%>
+  <div>
+    <%=r.star_count%>
+    <%=r.body%>
+    <%=link_to 'Delete', product_review_path(@product, r), method: :delete, data: {confirm: 'Are you sure?'}%>
+  </div>
+  <%end%>
+</div>
+
+<% if @review.errors.any? %>
+  <ul>
+    <%= @review.errors.full_messages.each do |msg| %>
+      <li><%=msg%></li>
+    <%end%>
+  </ul>
+<%end%>
+<%= form_for [@product, @review] do |r|%>
+  <div >
+    <%= r.label :star_count%>
+    <%= r.text_field :star_count%>
+  </div>
+  <div>
+    <%= r.text_area :body%>
+  </div>
+  <%=r.submit%>
+<%end%>
+
+<%= link_to 'Edit', edit_product_path(@product), class:'btn btn-info'%>
+<%= link_to 'Delete', product_path(@product),
+                                method: :delete,
+                                data: {confirm: 'Are you sure?'},
+                                class:'btn btn-primary'%>

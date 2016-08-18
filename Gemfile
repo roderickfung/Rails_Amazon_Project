@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'kaminari', github: 'amatsuda/kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use postgresql as the database for Active Record
@@ -36,7 +36,12 @@ group :development, :test do
   gem 'awesome_print'
   gem 'interactive_editor'
   gem 'hirb'
-  gem 'byebug', platform: :mri
+  # gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'rspec-rails'
 end
 
 group :development do
